@@ -1,5 +1,5 @@
 
-class VtbSoundListBorder:
+class VtbVoiceListBorder:
     BORDER_TITLE_TOP_U = 10                                 # 标题距离顶部和底部的留白距离
     BORDER_DEFAULT_LR = 50                                  # 默认左右间隔
     BORDER_SYNTAX_TITLE_U = 30                              # 语法标题顶部留白距离

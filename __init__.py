@@ -1,2 +1,2 @@
-from .query_vtb_sound import query_vtb_sound  # noqa: F401
-from .get_vtb_sound_list import get_vtb_sound_list  # noqa: F401
+from .query_vtb_voice import query_vtb_voice  # noqa: F401
+from .get_vtb_voice_list import get_vtb_voice_list  # noqa: F401
