@@ -2,15 +2,15 @@ import random
 import re
 import time
 from typing import Union, Tuple, Any
-from pathlib import Path
+from utils import get_config_path
 from protocol_adapter.protocol_adapter import ProtocolAdapter
 from protocol_adapter.adapter_type import AdapterGroupMessageEvent, AdapterPrivateMessageEvent, AdapterMessage
 from nonebot import on_regex
 from nonebot.matcher import Matcher
-from nonebot.params import CommandArg, RegexGroup
+from nonebot.params import RegexGroup
 from nonebot.log import logger
 from plugins.common_plugins_function import white_list_handle
-import configs.vtb_voice
+from .vtb_voice_config import get_voice_yaml_data
 
 query_vtb_voice = on_regex(
     pattern=r"^(vtb|ｖｔｂ)( +.*)?$",
@@ -69,7 +69,7 @@ async def _(
 
     # vtb_voice阻止后续事件执行
     matcher.stop_propagation()
-    voices_data = configs.vtb_voice.get_voice_yaml_data()
+    voices_data = get_voice_yaml_data()
     if voices_data is None:
         logger.error("query_vtb_voice voices_data is None.")
         await query_vtb_voice.finish("无法获取vtb_voice列表")
@@ -131,6 +131,6 @@ async def _(
     dst_voice_dirs = voices_list[random.randint(0, len(voices_list) - 1)]["dirs"]
     dst_voice_dir = dst_voice_dirs[random.randint(0, len(dst_voice_dirs) - 1)]
 
-    file_path_origin = Path(configs.get_config_path()).joinpath(f"vtb_voice/{dst_voice_dir}")
+    file_path_origin = get_config_path().joinpath(f"vtb_voice/{dst_voice_dir}")
     msg = ProtocolAdapter.MS.voice(file_path_origin)
     await query_vtb_voice.finish(msg)
