@@ -8,7 +8,7 @@ class VtbVoiceListBorder:
     BORDER_VTB_NAME_LIST_TITLE_U = 30                       # vtb列表标题顶部留白距离
     BORDER_VTB_NAME_LIST_TITLE_L = 50                       # vtb列表标题左侧留白距离
     BORDER_VTB_NAME_LIST_SUB_TITLE_U = 30                   # vtb列表子标题顶部留白距离
-    BORDER_VTB_NAME_LIST_SUB_TITLE_L = [70, 540]            # vtb列表子标题左侧留白距离
+    BORDER_VTB_NAME_LIST_SUB_TITLE_L = [70, 540, 1010]      # vtb列表子标题左侧留白距离
     BORDER_VTB_NAME_LIST_CONTENT_EXTRA_L = 30               # vtb列表内容左侧额外缩进
     BORDER_TITLE_NAME_L = 30                                # 标题名字左侧留白距离
     BORDER_DESIGNER_UP = 20                                 # 开发者信息距离上面的留白距离

@@ -69,7 +69,7 @@ class VtbVoiceListPainter:
 
     @classmethod
     def generate_vtb_voice_list_pic(cls, vtb_voice_data, event_type, type_id):
-        width = 980
+        width = 1460
         height = 100000
         pic = PicGenerator(width, height)
         pic = pic.draw_rectangle(0, 0, width, height, Color.WHITE)
@@ -135,6 +135,7 @@ class VtbVoiceListPainter:
         max_y = pic.y
 
         voice_count = 0
+        vtb_voice_name_voice_exist = {}    # name -> count 用来过滤掉某些群组下某个name下无任何语音可以展示的情况
         for each_data in vtb_voice_data["data"]:
             for each_voice in each_data["voices"]:
                 if (len(each_voice.get("white_list", [])) == 0) or \
@@ -143,6 +144,7 @@ class VtbVoiceListPainter:
                         each_voice["white_list"]))):
                     # 无白名单 或 当前在白名单范围内
                     voice_count += 1
+                    vtb_voice_name_voice_exist[str(each_data["vtb_name"])] = True
         cur_vtb_name = None  # 切换了vtb_name则新建一个标题
         # index_total表示一共有多少行 根据行数来决定什么时候切换列
         # vtb_count个标题（vtb名），以及vtb_count*0.3个标题额外内容（vtb名称集合）
@@ -152,8 +154,10 @@ class VtbVoiceListPainter:
         paint_start_y = pic.y
         for each_data in vtb_voice_data["data"]:
             if cur_vtb_name != each_data["vtb_name"]:
-                pic.set_pos(VtbVoiceListBorder.BORDER_VTB_NAME_LIST_SUB_TITLE_L[offset_index], pic.y)
                 cur_vtb_name = each_data["vtb_name"]
+                if vtb_voice_name_voice_exist.get(str(cur_vtb_name)) is None:
+                    continue
+                pic.set_pos(VtbVoiceListBorder.BORDER_VTB_NAME_LIST_SUB_TITLE_L[offset_index], pic.y)
                 start_x = pic.x
                 right_limit = VtbVoiceListBorder.BORDER_VTB_NAME_LIST_SUB_TITLE_L[offset_index + 1] if \
                     offset_index < (len(VtbVoiceListBorder.BORDER_VTB_NAME_LIST_SUB_TITLE_L) - 1) else pic.width
