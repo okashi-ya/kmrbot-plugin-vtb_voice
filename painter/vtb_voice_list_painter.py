@@ -70,7 +70,7 @@ class VtbVoiceListPainter:
     @classmethod
     def generate_vtb_voice_list_pic(cls, vtb_voice_data, event_type, type_id):
         width = 1460
-        height = 100000
+        height = 10000
         pic = PicGenerator(width, height)
         pic = pic.draw_rectangle(0, 0, width, height, Color.WHITE)
 
