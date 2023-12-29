@@ -4,7 +4,7 @@ from typing import Union
 from protocol_adapter.protocol_adapter import ProtocolAdapter
 from protocol_adapter.adapter_type import AdapterMessage, AdapterGroupMessageEvent, AdapterPrivateMessageEvent
 import configs.vtb_voice
-from plugins.common_plugins_function import white_list_handle
+from utils.permission import white_list_handle
 from .painter.vtb_voice_list_painter import VtbVoiceListPainter
 
 get_vtb_voice_list = on_command(

@@ -9,7 +9,7 @@ from nonebot import on_regex
 from nonebot.matcher import Matcher
 from nonebot.params import RegexGroup
 from nonebot.log import logger
-from plugins.common_plugins_function import white_list_handle
+from utils.permission import white_list_handle
 from .vtb_voice_config import get_voice_yaml_data
 
 query_vtb_voice = on_regex(
