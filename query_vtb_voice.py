@@ -80,7 +80,7 @@ async def _(
     voice_name = result[2]
 
     # 超级用户跳过所有限流
-    if event.get_user_id() not in voices_data["super_user"]:
+    if ProtocolAdapter.get_user_id(event) not in voices_data["super_user"]:
         # 限流 一个人有时间限制 一个群也有时间限制
         if last_query_time_data.get(msg_type) is None:
             last_query_time_data[msg_type] = {}
