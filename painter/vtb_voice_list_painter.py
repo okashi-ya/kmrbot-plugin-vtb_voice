@@ -105,11 +105,11 @@ class VtbVoiceListPainter:
 
         pic.paint_auto_line_text(pic.x, "语法：\n", VtbVoiceListFont.title_font(), Color.BLACK)
         pic.set_pos(VtbVoiceListBorder.BORDER_SYNTAX_EXPLAIN_L, pic.y)
-        pic.paint_auto_line_text(pic.x, "vtb [UserName] [SoundName]\n",
+        pic.paint_auto_line_text(pic.x, "vtb [UserName] [VoiceName]\n",
                                  VtbVoiceListFont.explain_font(), Color.BLACK)
         pic.paint_auto_line_text(pic.x, "UserName: 用户名（多个均可触发）\n", VtbVoiceListFont.explain_font(),
                                  Color.BLACK)
-        pic.paint_auto_line_text(pic.x, "SoundName: 音频名（部分有模糊匹配）\n", VtbVoiceListFont.explain_font(),
+        pic.paint_auto_line_text(pic.x, "VoiceName: 音频名（部分有模糊匹配）\n", VtbVoiceListFont.explain_font(),
                                  Color.BLACK)
         pic.paint_auto_line_text(pic.x, "用户名和音频名均可以省略，"
                                         "省略时则随机返回一个音频内容。\n", VtbVoiceListFont.explain_font(), Color.RED)

@@ -120,7 +120,7 @@ async def _(
             voices_list.append(each_voice)
     if len(voices_list) == 0:
         await query_vtb_voice.finish(ProtocolAdapter.MS.reply(event) +
-                                     ProtocolAdapter.MS.text("未找到user和name对应的音频！"))
+                                     ProtocolAdapter.MS.text("未找到对应音频！"))
 
     if user_id not in voices_data["super_user"]:
         # 非超级用户 写入对应的CD时间
